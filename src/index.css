@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.background {
+  background: linear-gradient(
+      to right,
+      rgba(180, 179, 179, 0.226) 0%,
+      rgba(151, 148, 148, 0.178) 100%
+    ),
+    url(./img/background.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  transition: 0.1s ease-in;
+}
+
+.background.clear {
+  background: linear-gradient(
+      to right,
+      rgba(212, 212, 212, 0.329) 0%,
+      rgba(167, 164, 164, 0.747) 100%
+    ),
+    url(./img/sunny.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.1s ease-in;
+}
+
+.background.snow {
+  background: linear-gradient(
+      to right,
+      rgba(180, 178, 178, 0.205) 0%,
+      rgba(206, 203, 203, 0.068) 100%
+    ),
+    url(./img/snowy.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.1s ease-in;
+}
+
+.background.clouds {
+  background: linear-gradient(
+      to right,
+      rgba(180, 178, 178, 0.205) 0%,
+      rgba(206, 203, 203, 0.068) 100%
+    ),
+    url(./img/cloudy.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.1s ease-in;
+}
+
+.background.rain {
+  background: linear-gradient(
+      to right,
+      rgba(180, 178, 178, 0.205) 0%,
+      rgba(206, 203, 203, 0.068) 100%
+    ),
+    url(./img/rainy.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.1s ease-in;
+}
+
+.background.thunder {
+  background: linear-gradient(
+      to right,
+      rgba(180, 178, 178, 0.205) 0%,
+      rgba(206, 203, 203, 0.068) 100%
+    ),
+    url(./img/thunderstorm.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.1s ease-in;
+}
+
+.background.mist {
+  background: linear-gradient(
+      to right,
+      rgba(180, 178, 178, 0.205) 0%,
+      rgba(206, 203, 203, 0.068) 100%
+    ),
+    url(./img/mist.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.1s ease-in;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+}
+
+.search-container {
+  position: relative;
+  width: max-content;
+  margin-top: 40px;
+}
+
+.search-container input {
+  background: transparent;
+  padding: 10px 10px;
+  width: 300px;
+  height: 40px;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  outline: none;
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
+  /* box-shadow: 1px 2px 5px rgb(121, 119, 119);*/
+  padding-left: 15px;
+}
+
+button {
+  width: 30px;
+  height: 35px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.fa-search {
+  font-size: 1.4rem;
+  color: rgb(241, 235, 235);
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+
+.date-box {
+  background-color: rgba(255, 255, 255, 0.527);
+  width: 250px;
+  height: 50px;
+  box-shadow: 1px 2px 5px rgba(77, 77, 77, 0.829);
+  border-radius: 15px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  margin-bottom: 15px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.527);
+  width: 250px;
+  height: 150px;
+  box-shadow: 1px 2px 5px rgba(77, 77, 77, 0.829);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.city-country {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.card img {
+  width: 80px;
+}
+
+.temp-icon {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  justify-content: space-evenly;
+}
+
+.temp {
+  font-family: "Poppins", sans-serif;
+  color: rgb(14, 13, 13);
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.feels-like {
+  font-weight: 600;
+}
+
+.min-max-container {
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.temp-min-max {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.527);
+  width: 100px;
+  height: 50px;
+  box-shadow: 1px 2px 5px rgba(77, 77, 77, 0.829);
+  border-radius: 15px;
+}
+
+.temp-min-max p {
+  font-weight: 600;
+}
