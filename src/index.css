@@ -74,7 +74,7 @@
       rgba(180, 178, 178, 0.205) 0%,
       rgba(206, 203, 203, 0.068) 100%
     ),
-    url(./img/thunderstorm.jpg);
+    url(./img/thunderstorm.png);
   background-repeat: no-repeat;
   background-size: cover;
   transition: 0.1s ease-in;

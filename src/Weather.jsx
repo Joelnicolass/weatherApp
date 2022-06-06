@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Axios from "axios";
+import { useEffect } from "react";
 
 function Weather() {
   const date = new Date();
@@ -16,7 +17,7 @@ function Weather() {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ];
   const days = [
     "Sunday",
@@ -25,7 +26,7 @@ function Weather() {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
 
   const day = days[date.getDay()];
@@ -48,7 +49,7 @@ function Weather() {
     temperature: "",
     feelsLike: "",
     tempMin: "",
-    tempMax: ""
+    tempMax: "",
   });
   const [weatherIcon, setWeatherIcon] = useState("crescent-moon");
   const [background, setBackground] = useState("background");
@@ -57,6 +58,39 @@ function Weather() {
     let currentCity = e.target.value;
     setCity(currentCity);
   };
+
+  useEffect(() => {
+    switch (weatherInfo.info) {
+      case "Clouds":
+        setWeatherIcon("cloudy");
+        setBackground("background clouds");
+        break;
+      case "Clear":
+        setWeatherIcon("clear-sky");
+        setBackground("background clear");
+        break;
+      case "Snow":
+        setWeatherIcon("snowy");
+        setBackground("background snow");
+        break;
+      case "Rain":
+        setWeatherIcon("rainy");
+        setBackground("background rain");
+        break;
+      case "Drizzle":
+        setWeatherIcon("drizzle");
+        setBackground("background rain");
+        break;
+      case "Thunderstorm":
+        setWeatherIcon("thunderstorm");
+        setBackground("background thunder");
+        break;
+      default:
+        setWeatherIcon("mist");
+        setBackground("background mist");
+        break;
+    }
+  }, [displayCity]);
 
   const displayWeather = (currentCity) => {
     Axios.get(
@@ -72,41 +106,14 @@ function Weather() {
         temperature: response.data.main.temp,
         feelsLike: response.data.main.feels_like,
         tempMin: response.data.main.temp_min,
-        tempMax: response.data.main.temp_max
+        tempMax: response.data.main.temp_max,
       });
       setdisplayCity(true);
 
+      // el useState es asincrono... esto quiere decir que cuando seteas displayCity a true, todavia es false a la hora de hacer este if... para solucionarlo tenes que usar un useEffect.
+
+      // el useEffect va a escuchar al estado displayCity, y va a ejecutar una funcion cuando cambie el estado. Ese es tu condicional.
       if (displayCity) {
-        switch (weatherInfo.info) {
-          case "Clouds":
-            setWeatherIcon("cloudy");
-            setBackground("background clouds");
-            break;
-          case "Clear":
-            setWeatherIcon("clear-sky");
-            setBackground("background clear");
-            break;
-          case "Snow":
-            setWeatherIcon("snowy");
-            setBackground("background snow");
-            break;
-          case "Rain":
-            setWeatherIcon("rainy");
-            setBackground("background rain");
-            break;
-          case "Drizzle":
-            setWeatherIcon("drizzle");
-            setBackground("background rain");
-            break;
-          case "Thunderstorm":
-            setWeatherIcon("thunderstorm");
-            setBackground("background thunder");
-            break;
-          default:
-            setWeatherIcon("mist");
-            setBackground("background mist");
-            break;
-        }
       }
 
       /*  currentCity = "";
@@ -140,7 +147,7 @@ function Weather() {
                 {Math.round(weatherInfo.temperature)}°C
               </div>
               <div>
-                <img src={`./img/${weatherIcon}.png`} alt={weatherIcon} />
+                <img src={`./img/${weatherIcon}.jpg`} alt={weatherIcon} />
               </div>
             </div>
 
